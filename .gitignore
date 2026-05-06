@@ -1,0 +1,32 @@
+# Environment variables — NEVER commit these
+.env
+
+# Google Service Account key — NEVER commit this
+service_account.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# FAISS local index (generated at runtime)
+local_faiss_index/
+
+# SQLite sync state (generated at runtime)
+sync_state.db
+
+# Temp downloads from Drive
+temp_downloads/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Private project notes
+flow.md

@@ -218,8 +218,6 @@ Content-Type: application/json
 
 ## Limitations
 
-- **PDF-only page metadata**: Page numbers are only tracked for PDFs. Text files and Google Docs do not have page-level metadata.
-- **Single folder**: The system syncs one Drive folder (set by `GDRIVE_FOLDER_ID`). Nested sub-folders are not traversed recursively.
 - **No file deletion sync**: If a file is deleted from Drive, it remains in the FAISS index until the index is manually cleared.
 - **Local FAISS only**: The vector store is a local file. In a multi-server or cloud deployment, this would need to be replaced with a shared vector database (e.g., OpenSearch, Pinecone, Weaviate).
 - **No authentication on API**: The FastAPI endpoints are currently open with no API key or auth middleware.
@@ -230,8 +228,7 @@ Content-Type: application/json
 ## Future Improvements
 
 - [ ] **Recursive folder sync** — Traverse sub-folders in Drive automatically.
-- [ ] **Deletion tracking** — Detect files removed from Drive and prune their chunks from the FAISS index.
-- [ ] **OpenSearch / Pinecone backend** — Swap FAISS for a production-grade, distributed vector store to support multi-server deployments.
+- [ ] **OpenSearch / Pinecone backend** — Swap FAISS for a production-grade, distributed vector store to support Multi-server deployments.
 - [ ] **Async ingestion pipeline** — Process and embed documents in a background task queue (e.g., Celery or `asyncio`) so `/sync-drive` returns immediately and doesn't block.
 - [ ] **API Key authentication** — Add `X-API-Key` middleware to secure the endpoints.
 - [ ] **Metadata filtering** — Allow queries like "Only search inside `policy.pdf`" using FAISS metadata pre-filters.
